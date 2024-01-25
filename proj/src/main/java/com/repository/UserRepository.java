@@ -1,12 +1,15 @@
 package com.repository;
 
+import com.model.Client;
 import com.model.User;
+import com.model.WarehouseAdmin;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class UserRepository {
@@ -27,13 +30,31 @@ public class UserRepository {
         String statement = "FROM User WHERE username = :username AND password = :password";
         Query query = session.createQuery(statement).setParameter("username", username).setParameter("password", password);
         User user = (User) query.list().get(0);
-        return user;
+        if(Objects.equals(user.getRole(), "CLIENT")) {
+           User client = new Client(username, password);
+           client.setId(user.getId());
+           return client;
+        }
+        else {
+            User admin = new WarehouseAdmin(username, password);
+            admin.setId(user.getId());
+            return admin;
+        }
     }
     public User findByName(String username) {
         String statement = "FROM User WHERE username LIKE :username";
         Query query = session.createQuery(statement).setParameter("username", username);
         User user = (User) query.list().get(0);
-        return user;
+        if(Objects.equals(user.getRole(), "CLIENT")) {
+           User client = new Client(username, user.getPassword());
+           client.setId(user.getId());
+           return client;
+        }
+        else {
+            User admin = new WarehouseAdmin(username, user.getPassword());
+            admin.setId(user.getId());
+            return admin;
+        }
     }
 
 

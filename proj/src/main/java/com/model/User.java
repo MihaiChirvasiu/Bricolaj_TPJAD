@@ -4,10 +4,16 @@ import java.io.Serial;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private int id;
-    private String username;
-    private String password;
-    private String role;
+    protected int id;
+    protected String username;
+    protected String password;
+    protected String role;
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
     public int getId() {
         return id;

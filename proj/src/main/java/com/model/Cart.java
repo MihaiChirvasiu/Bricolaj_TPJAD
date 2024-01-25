@@ -14,7 +14,8 @@ public class Cart {
     }
 
     public double getTotal() {
-        return this.total = items.stream().mapToDouble(CartItem::getTotal).sum();
+        this.total = items.stream().mapToDouble(CartItem::getTotal).sum();
+        return this.total;
     }
 
     public void setTotal(double total) {
@@ -27,5 +28,9 @@ public class Cart {
 
     public void setItems(List<CartItem> items) {
         this.items = items;
+    }
+
+    public void addItem(CartItem newItem){
+        items.add(newItem);
     }
 }
