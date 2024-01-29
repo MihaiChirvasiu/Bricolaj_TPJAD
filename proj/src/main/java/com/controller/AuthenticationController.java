@@ -55,12 +55,12 @@ public class AuthenticationController {
             }
             else{
                 if(Objects.equals(loginRequest.getRole(), "CLIENT")){
-                    User newUser = new Client(loginRequest.getUsername(), loginRequest.getPassword());
+                    User newUser = new Client(loginRequest.getUsername(), loginRequest.getPassword(), loginRequest.getUsername() + "@gmail.com");
                     userRepository.add(newUser);
                     return new ResponseEntity<>("User registered!", HttpStatus.OK);
                 }
                 else{
-                    User newUser = new WarehouseAdmin(loginRequest.getUsername(), loginRequest.getPassword());
+                    User newUser = new WarehouseAdmin(loginRequest.getUsername(), loginRequest.getPassword(), loginRequest.getUsername() + "@gmail.com");
                     userRepository.add(newUser);
                     return new ResponseEntity<>("User registered!", HttpStatus.OK);
                 }

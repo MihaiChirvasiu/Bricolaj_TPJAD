@@ -16,5 +16,7 @@
         <mapping resource="hbm/TicketMatchRelEntity.hbm.xml"/>
         <mapping resource="hbm/UserEntity.hbm.xml"/>
         <mapping resource="hbm/UserDetailsEntity.hbm.xml"/>-->
+        <mapping resource="hbm/User.hbm.xml"/>
+        <mapping resource="hbm/Product.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

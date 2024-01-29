@@ -31,12 +31,12 @@ public class UserRepository {
         Query query = session.createQuery(statement).setParameter("username", username).setParameter("password", password);
         User user = (User) query.list().get(0);
         if(Objects.equals(user.getRole(), "CLIENT")) {
-           User client = new Client(username, password);
+           User client = new Client(username, password, user.getEmail());
            client.setId(user.getId());
            return client;
         }
         else {
-            User admin = new WarehouseAdmin(username, password);
+            User admin = new WarehouseAdmin(username, password, user.getEmail());
             admin.setId(user.getId());
             return admin;
         }
@@ -46,12 +46,12 @@ public class UserRepository {
         Query query = session.createQuery(statement).setParameter("username", username);
         User user = (User) query.list().get(0);
         if(Objects.equals(user.getRole(), "CLIENT")) {
-           User client = new Client(username, user.getPassword());
+           User client = new Client(username, user.getPassword(), user.getEmail());
            client.setId(user.getId());
            return client;
         }
         else {
-            User admin = new WarehouseAdmin(username, user.getPassword());
+            User admin = new WarehouseAdmin(username, user.getPassword(), user.getEmail());
             admin.setId(user.getId());
             return admin;
         }

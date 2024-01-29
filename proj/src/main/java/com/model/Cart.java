@@ -8,6 +8,11 @@ public class Cart {
 
     private double total;
 
+    @Override
+    public String toString() {
+        return items.toString();
+    }
+
     public Cart(){
         this.items = new ArrayList<>();
         this.total = 0.0;

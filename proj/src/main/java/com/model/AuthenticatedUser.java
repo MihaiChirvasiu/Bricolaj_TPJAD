@@ -10,13 +10,14 @@ public class AuthenticatedUser extends User implements UserDetails {
     private String token;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public AuthenticatedUser(int id, String username, String password, String token, Collection<? extends GrantedAuthority> authorities){
-        super(username, password, "");
+    public AuthenticatedUser(int id, String username, String password, String email, String token, Collection<? extends GrantedAuthority> authorities){
+        super(username, password, email,"");
         this.id = id;
         this.username = username;
         this.password = password;
         this.token = token;
         this.authorities = authorities;
+        this.email = email;
     }
     @JsonIgnore
     public int getId(){
