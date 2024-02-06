@@ -12,7 +12,7 @@ export const Cart = () => {
     const navigate = useNavigate();
     const [products, setProducts] = useState({productsList: []});
     useEffect(() =>{
-        fetch('http://localhost:8080/admin/load', {
+        fetch('http://localhost:8080/proj-1.0-SNAPSHOT/admin/load', {
             method: "GET",
             mode: 'cors',
             headers: {

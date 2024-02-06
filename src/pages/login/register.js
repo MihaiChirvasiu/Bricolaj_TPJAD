@@ -7,7 +7,7 @@ export const Register = () => {
     const navigate = useNavigate();
 
     const handleRegister = () => {
-        fetch('http://localhost:8080/register', {
+        fetch('http://localhost:8080/proj-1.0-SNAPSHOT/register', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -20,11 +20,11 @@ export const Register = () => {
             }),
         }).then((response) => response.json())
             .then((result) => {
-                if(result.message === "SUCCESS"){
+                if(result !== null){
                     setRegisteredUser({username: document.getElementById("#usernameInput").value,
                         password: document.getElementById("#usernameInput").value,
                         role: result.body.role, registered: true});
-                    if(registeredUser.role === "CLIENT"){
+                    if(result.role === "CLIENT"){
                         navigate('/shop')
                     }
                     else{

@@ -4,7 +4,7 @@ import { ShopContext } from "../../context/shop-context";
 export const AdminProduct = (props) => {
     const { id, productImage, name, quantity, price } = props.data;
     const handleUpdate = () =>{
-        fetch('http://localhost:8080/admin/update', {
+        fetch('http://localhost:8080/proj-1.0-SNAPSHOT/admin/update', {
             method: 'PUT',
             mode: 'cors',
             headers: {
