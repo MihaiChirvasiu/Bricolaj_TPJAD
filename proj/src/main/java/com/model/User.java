@@ -1,6 +1,5 @@
 package com.model;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -10,6 +9,10 @@ public class User implements Serializable {
     protected String role;
 
     protected String email;
+
+    public User(){
+
+    }
 
     public User(String username, String password, String email, String role) {
         this.username = username;

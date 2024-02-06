@@ -8,24 +8,20 @@ import com.util.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class ClientController {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
-    private MailService mailService;
-
-    @Autowired
+   /* @Autowired
+    private MailService mailService;*/
     public ClientController(){
-
+        productRepository = new ProductRepository();
     }
 
     @RequestMapping(value = "/client/load", method = RequestMethod.GET)
@@ -34,7 +30,7 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
 
-    @RequestMapping(value = "/client/sendMail", method = RequestMethod.POST)
+   /* @RequestMapping(value = "/client/sendMail", method = RequestMethod.POST)
     public ResponseEntity<?> sendMail(@RequestBody Mail mail){
         try {
             mailService.sendMail(mail.getTo(), "Confirmation", mail.toString());
@@ -42,5 +38,5 @@ public class ClientController {
             e.printStackTrace();
         }
         return ResponseEntity.status(HttpStatus.OK).body("Check your email for the confirmation");
-    }
+    }*/
 }

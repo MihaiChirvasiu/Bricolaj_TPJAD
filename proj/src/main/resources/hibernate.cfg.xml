@@ -4,11 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/bricolaj?useSSL=false</property>
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">password</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bricolaj?useSSL=false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
 
         <!--<mapping resource="hbm/EventEntity.hbm.xml"/>
         <mapping resource="hbm/ResultsEntity.hbm.xml"/>

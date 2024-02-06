@@ -3,7 +3,7 @@ package com.repository;
 import com.model.Client;
 import com.model.User;
 import com.model.WarehouseAdmin;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

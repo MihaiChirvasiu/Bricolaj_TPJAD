@@ -1,6 +1,9 @@
 package com.util;
 
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;

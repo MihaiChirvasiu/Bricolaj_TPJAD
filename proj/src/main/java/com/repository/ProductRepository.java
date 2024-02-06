@@ -1,7 +1,8 @@
 package com.repository;
 
 import com.model.Product;
-import org.hibernate.query.Query;
+import com.util.SessionDB;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public class ProductRepository {
     private org.hibernate.Session session;
 
     public ProductRepository(){
-
+        session = SessionDB.getSession();
     }
 
     public void add(Product product){
